@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>책 등록</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="p-5 mb-5 text-center</> bg-light">
+    <h1 class="mb-3"></h1>
+    <h4 class="mb-3">책 관리 시스템에 오신 것을 환영합니다.</h4>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <article>
+                <input type="hidden" id="book-id" th:value="${book.getId()}">
+
+                <header class="mb-4">
+                    <input type="text" class="form-control" placeholder="제목" id="title"
+                           th:value="${book.getTitle()}">
+                </header>
+                <section class="mb-5">
+                    <textarea class="form-control h-25" rows="10" placeholder="저자"
+                              id="author" th:text="${book.getAuthor()}"></textarea>
+                    <textarea class="form-control h-25" rows="10" placeholder="출판사"
+                              id="publisher" th:text="${book.getPublisher()}"></textarea>
+                    <textarea class="form-control h-25" rows="10" placeholder="발행일"
+                              id="publicationDate" th:text="${book.getPublicationDate()}"></textarea>
+                </section>
+                <button th:if="${book.getId()} != null" type="button" id="modify-btn"
+                        class="btn btn-primary btn-sm">수정</button>
+                <button th:if="${book.getId()} == null" type="button" id="create-btn"
+                        class="btn btn-primary btn-sm">등록</button>
+            </article>
+        </div>
+    </div>
+</div>
+
+<script src="/js/book.js"></script>
+</body>
+</html>
