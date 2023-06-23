@@ -23,11 +23,11 @@
                            th:value="${book.getTitle()}">
                 </header>
                 <section class="mb-5">
-                    <textarea class="form-control h-25" rows="10" placeholder="저자"
-                              id="author" th:text="${book.getAuthor()}"></textarea>
-                    <textarea class="form-control h-25" rows="10" placeholder="출판사"
+                    <input type="text" class="form-control" placeholder="저자"
+                              id="author" th:text="${book.getAuthor()}"></input>
+                    <input type="text" class="form-control" placeholder="출판사"
                               id="publisher" th:text="${book.getPublisher()}"></textarea>
-                    <textarea class="form-control h-25" rows="10" placeholder="발행일"
+                    <input type="text" class="form-control" placeholder="발행일"
                               id="publicationDate" th:text="${book.getPublicationDate()}"></textarea>
                 </section>
                 <button th:if="${book.getId()} != null" type="button" id="modify-btn"

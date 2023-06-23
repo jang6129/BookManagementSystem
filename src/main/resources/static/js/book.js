@@ -13,4 +13,50 @@ if (deleteButton) {
     });
 }
 
-const modify
+const modifyButton = document.getElementById('modify-btn');
+
+if (modifyButton) {
+    modifyButton.addEventListener('click', event => {
+        let params = new URLSearchParams(location.search);
+        let id = params.get('id');
+
+        fetch(`/bms/books/${id}`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                title: document.getElementById('title').value,
+                author: document.getElementById('author').value,
+                publisher: document.getElementById('publisher').value,
+                publicationDate: document.getElementById('publicationDate').value
+            })
+        })
+            .then(() => {
+                alert('수정 완료.');
+                location.replace(`/books/${id}`);
+            });
+    });
+}
+
+const createButton = document.getElementById('create-btn');
+
+if (createButton) {
+    createButton.addEventListener('click', (event) => {
+        fetch("/bms/books", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                title: document.getElementById('title').value,
+                author: document.getElementById('author').value,
+                publisher: document.getElementById('publisher').value,
+                publicationDate: document.getElementById('publicationDate').value
+            }),
+        }).then(() => {
+            alert('등록 완료.');
+            location.replace("/books");
+        });
+    });
+}

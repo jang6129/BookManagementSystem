@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,6 +24,8 @@ public class AddBookRequest {
                 .author(author)
                 .publisher(publisher)
                 .publicationDate(publicationDate)
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDate.now())
                 .build();
     }
 

@@ -39,7 +39,7 @@ public class BookService {
         Book book = bookRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
 
-        book.update(request.getTitle(), request.getAuthor(), request.getPublisher(), request.getPulbicationDate());
+        book.update(request.getTitle(), request.getAuthor(), request.getPublisher(), request.getPublicationDate());
 
         return book;
     }
